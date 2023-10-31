@@ -1,0 +1,25 @@
+{
+  "name": "edival-api",
+  "version": "1.0.0",
+  "description": "A back-end API for EDIVAL Android Apllication",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "start-dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HanselTanoto/edival-api.git"
+  },
+  "author": "EDIVAL (Edible Eval)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HanselTanoto/edival-api/issues"
+  },
+  "homepage": "https://github.com/HanselTanoto/edival-api#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  }
+}
