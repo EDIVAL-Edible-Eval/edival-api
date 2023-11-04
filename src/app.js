@@ -6,7 +6,7 @@ dotenv.config();
 const app = express();
 
 app.get('/', (req, res) => {
-    const name = process.env.NAME || 'World - v1.0.0';
+    const name = process.env.NAME || 'World - v1.0.1';
     res.send(`Hello ${name}!`);
 });
 
