@@ -12,7 +12,7 @@ npm run start-dev
 4. Your API is Running on http://localhost:3000
 
 ## How to Build
-> ***Every push event in this repository will automatically trigger a build process in Google Cloud.***
+> ***Every push event in this repository will automatically trigger a build process in Google Cloud. This app will be automatically deployed using Cloud Deploy on a Cloud Run service named 'edival-api-pipeline-edival-api-dev'***
 
 But, if you want to build the API manually, run the following command
 ```

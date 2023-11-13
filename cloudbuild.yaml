@@ -1,12 +1,4 @@
 steps:
-  # Build and push the container image to Artifact Registry
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-    - 'builds'
-    - 'submit'
-    - '--region=us-central1'
-    - '--tag'
-    - 'us-central1-docker.pkg.dev/edival-402305/edival-docker-repo/edival-api-image:tag1'
   # Create release in Google Cloud Deploy
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     entrypoint: gcloud
