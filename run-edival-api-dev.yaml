@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: edival-api-pipeline-edival-api-dev
+spec:
+  template:
+    spec:
+      containers:
+      - image: edival-api

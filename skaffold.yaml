@@ -1,0 +1,13 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+deploy:
+  cloudrun: {}
+profiles:
+- name: edival-api-dev
+  manifests:
+    rawYaml:
+    - run-edival-api-dev.yaml
+- name: edival-api-prod
+  manifests:
+    rawYaml:
+    - run-edival-api-prod.yaml

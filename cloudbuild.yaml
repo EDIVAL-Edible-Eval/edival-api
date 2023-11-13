@@ -1,17 +1,20 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/edival-402305/edival-docker-repo/edival-api-image:tag1', '.']
-  # Push the container image to Artifact Registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/edival-402305/edival-docker-repo/edival-api-image:tag1']
+  # Build and push the container image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+    - 'builds'
+    - 'submit'
+    - '--region=us-central1'
+    - '--tag'
+    - 'us-central1-docker.pkg.dev/edival-402305/edival-docker-repo/edival-api-image:tag1'
   # Create release in Google Cloud Deploy
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     entrypoint: gcloud
     args: 
       [
-        "beta", "deploy", "releases", "create", "rel-${SHORT_SHA}a",
-        "--delivery-pipeline", "helloworld-pipeline",
-        "--region", "us-central1",
+        "beta", "deploy", "releases", "create", "rel-${SHORT_SHA}c",
+        "--delivery-pipeline", "edival-api-pipeline",
+        "--region", "asia-southeast2",
         "--annotations", "commitId=${REVISION_ID}",
-        "--images", "helloworld=gcr.io/$PROJECT_ID/helloworld"
+        "--images", "edival-api=us-central1-docker.pkg.dev/edival-402305/edival-docker-repo/edival-api-image:tag1"
       ]
