@@ -18,7 +18,7 @@ app.use('/reminder', reminderRoutes)
 app.use('/gen-ai', genAIRoutes); 
 app.get('/', (req, res) => {
     const name = process.env.NAME || 'World';
-    res.send(`Hello ${name}! Edival API is RUNNING`);
+    res.send(`Greetings from ${name}!`);
 });
 
 const port = parseInt(process.env.PORT) || 8080;
