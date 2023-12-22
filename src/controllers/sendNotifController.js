@@ -2,6 +2,7 @@ import FirebaseApp from '../configs/firebaseConfig.js';
 import {Timestamp,FieldValue} from "firebase-admin/firestore";
 const notifAllReminders = async(req, res) => {
   try {
+
     const tommorow = new Date();
     const currentDate = Timestamp.fromDate(tommorow);
     tommorow.setDate(tommorow.getDate()+1);
@@ -33,6 +34,7 @@ const notifAllReminders = async(req, res) => {
       };
       listCandidate.push(candidate);
     };
+
     for (const [idx, candidate] of listCandidate.entries()) {
       const message = {
         notification: {
@@ -63,6 +65,7 @@ const notifAllReminders = async(req, res) => {
         await FirebaseApp.db.collection(`users/${candidate.id}/notifications/${notif_reminder.id}/notif_reminder`).doc(`${reminder.reminderId}`).set({...reminder.reminderData});
       } 
     }
+    
     res.send(listCandidate)
   }catch (error) {
     res.status(500).send(error);
