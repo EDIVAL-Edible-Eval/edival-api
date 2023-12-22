@@ -26,7 +26,12 @@ function extractJSON(text) {
       return error.message;
     }
   } else {
-    console.error('No match found');
+    try {
+      const convertedJSON = JSON.parse(text);
+      return convertedJSON
+    } catch (error) {
+      return error.message;
+    }
   }
 }
 
@@ -77,8 +82,8 @@ Note :
           'Content-Type': 'application/json',
         },
       }
-    ); 
-    res.json(extractJSON(response.data.predictions[0].content));
+    );
+    res.json(extractJSON(response.data.predictions[0].content))
   } catch (error) {
       console.error('Error:', error.response ? error.response.data : error.message);
       res.status(500).json({ error: 'Internal Server Error' });

@@ -16,7 +16,7 @@ app.use(express.raw( {type: ["image/jpeg", "image/jpg", "image/png", "image/gif"
 app.use('/user', userRoutes);
 app.use('/reminder', reminderRoutes);
 app.use('/gen-ai', genAIRoutes); 
-app.use('/', sendNotifRoutes);
+app.use('/xxx', sendNotifRoutes);
 app.get('/', (req, res) => {
     const name = process.env.NAME || 'World';
     res.send(`Greetings from ${name}!`);
